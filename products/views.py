@@ -7,10 +7,8 @@ from .form import ProductNewForms
 # Create your views here.
 
 
-def index(request):
-    context = {}
-    return render(request, 'index.html', context)
-
+class IndexView(generic.TemplateView):
+    template_name = 'index.html'
 
 # Class-based generic view
 class ProductIndex(generic.ListView):
@@ -24,22 +22,15 @@ class ProductDetail(generic.DetailView):
     queryset = Product.objects.all()
 
 
-def get_product(request):
-    form = ProductNewForms
-    context = {'form': form}
-    if request.method == 'POST':
-        form = ProductNewForms(request.POST)
-        if form.is_valid():
-            form.save(commit=True)
-            return render(request, 'products/list.html', context)
-        else:
-            print('Error Form Invalid')
-    return render(request, 'products/product_create.html', context)
-
+class ProductCreate(generic.CreateView):
+    fields = ['title', 'description', 'price']
+    template_name = 'products/product_create.html'
+    model = Product
 
 def product_about(request):
     context = {}
     return render(request, 'about.html', context)
+
 
 
 def product_contact(request):
