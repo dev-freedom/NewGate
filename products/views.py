@@ -27,12 +27,12 @@ class ProductCreate(generic.CreateView):
     template_name = 'products/product_create.html'
     model = Product
 
-def product_about(request):
-    context = {}
-    return render(request, 'about.html', context)
+
+class ProductAbout(generic.TemplateView):
+    template_name = 'about.html'
 
 
+class ProductContact(generic.TemplateView):
+    template_name = 'contact.html'
 
-def product_contact(request):
-    context = {}
-    return render(request, 'contact.html', context)
+
