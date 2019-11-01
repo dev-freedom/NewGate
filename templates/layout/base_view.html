@@ -4,13 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Link bootstrap -->
+    <!-- bootstrap css -->
     <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.css' %}" >
+    <!-- product css -->
     <link rel="canonical" href="{% static '/products/products.css' %}" >
     <title>Coming soon</title>
 </head>
 <body>
-    {% include 'layout/navbar.html' %}
+    <div>
+        {% include 'layout/navbar.html' %}
+    </div>
     {% block content %}
 
     {% endblock %}

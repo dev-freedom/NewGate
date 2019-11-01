@@ -21,7 +21,7 @@ urlpatterns = [
     # path of application
     path('admin/', admin.site.urls),
     path('products/', include('products.urls')),
-    path('customers/', include('customers.urls')),
+    # path('customers/', include('customers.urls')),
     # class basic generic
     path('', views.IndexView.as_view(), name='index'),
     path('about/', views.ProductAbout.as_view(), name='about'),

@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth import get_user_model
 from django.core import validators
 
 from .models import Product
@@ -6,7 +7,6 @@ from .models import Product
 
 
 class ProductForms(forms.ModelForm):
-
     class Meta:
         model = Product
         fields = ['title', 'description', 'price']
