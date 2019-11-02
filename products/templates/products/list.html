@@ -7,14 +7,12 @@
             <ul class="list-group">
             {% for product in product_list %}
                 <li class="list-group-item">
-
                     {{ product.title }}
                     <div class="float-right">
                         <button type="button" class="btn btn-outline-dark"><a href="{{ product.id }}">Show</a> </button>
                         <button type="button" class="btn btn-outline-dark"><a href="{{ product.id }}">Update</a> </button>
                         <button type="button" class="btn btn-outline-dark"><a href="{{ product.id }}">Delete</a> </button>
                     </div>
-
                 </li>
             {% endfor %}
         </ul>

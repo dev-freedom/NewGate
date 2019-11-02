@@ -87,14 +87,14 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
-
-PASSWORD_HASHERS = [
-        'django.contrib.auth.hashers.Agron2PasswordHasher',
-        'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
-        'django.contrib.auth.hashers.BCryptPasswordHasher',
-        'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-        'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-    ]
+#
+# PASSWORD_HASHERS = [
+#         'django.contrib.auth.hashers.Agron2PasswordHasher',
+#         'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+#         'django.contrib.auth.hashers.BCryptPasswordHasher',
+#         'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+#         'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+#     ]
 
 
 
@@ -120,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Ho_Chi_Minh'
 
 USE_I18N = True
 
