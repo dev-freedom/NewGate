@@ -1,0 +1,2 @@
+# NewGate
+Learn django
