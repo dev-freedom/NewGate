@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse, reverse_lazy
-from django.views.generic import (ListView, DetailView, CreateView, DeleteView)
+from django.views.generic import (ListView, DetailView, CreateView, UpdateView, DeleteView)
 
 from .models import Product
 from .form import ProductForms
@@ -22,17 +22,21 @@ class ProductDetail(DetailView):
 class ProductCreate(CreateView):
     model = Product
     template_name = 'products/create.html'
-    fields = ['title', 'description', 'price', 'published',]
+    # call out form in Product Create View
+    fields = ['title', 'description', 'price', 'published', ]
+    # Redirect when it new product created in view
     success_url = reverse_lazy('products:list')
 
 
-
-# class ProductUpdate(generic.UpdateView):
-#     model = Product
-#     fields = []
+class ProductUpdate(UpdateView):
+    model = Product
+    template_name = 'products/update.html'
+    fields = ['title', 'description', 'price', 'published']
+    success_url = reverse_lazy('products:list')
 
 
 class ProductDelete(DeleteView):
     model = Product
-    success_url = reverse_lazy('products-list')
-
+    template_name = 'products/delete.html'
+    fields = ['title', 'description', 'price', 'published']
+    success_url = reverse_lazy('products:list')

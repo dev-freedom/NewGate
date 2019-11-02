@@ -2,7 +2,6 @@
 {% block content %}
     <div class="container">
         <h1>List</h1>
-        {{ product_list }}
         <div class="coll container">
             <ul class="list-group">
             {% for product in product_list %}
@@ -10,12 +9,14 @@
                     {{ product.title }}
                     <div class="float-right">
                         <button type="button" class="btn btn-outline-dark"><a href="{{ product.id }}">Show</a> </button>
-                        <button type="button" class="btn btn-outline-dark"><a href="{{ product.id }}">Update</a> </button>
-                        <button type="button" class="btn btn-outline-dark"><a href="{{ product.id }}">Delete</a> </button>
+                        <button type="button" class="btn btn-outline-dark"><a href="{% url 'products:product-update' product.id %}">Update</a> </button>
+                        <button type="button" class="btn btn-outline-dark"><a href="{% url 'products:product-delete' product.id %}">Delete</a> </button>
                     </div>
                 </li>
             {% endfor %}
-        </ul>
+            </ul>
+        <!-- url to create product -->
+        <button type="button" class="btn btn-outline-dark"><a href="{% url 'products:product-create' %}">Create</a> </button>
         </div>
     </div>
 {% endblock %}
