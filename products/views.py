@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse, reverse_lazy
-from django.views.generic import (ListView, DetailView, CreateView, UpdateView, DeleteView)
+from django.views.generic import (TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView)
 
 from .models import Product
 from .form import ProductForms
@@ -10,13 +10,16 @@ from .form import ProductForms
 class ProductIndex(ListView):
     model = Product
     template_name = 'products/list.html'
-
-
+    queryset = Product.objects.all()
 
 class ProductDetail(DetailView):
     template_name = 'products/detail.html'
     context_object_name = 'products'
     queryset = Product.objects.all()
+
+
+class ProductCategoriesView(TemplateView):
+    template_name = 'products/product.html'
 
 
 class ProductCreate(CreateView):
