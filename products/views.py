@@ -26,7 +26,7 @@ class ProductCreate(CreateView):
     model = Product
     template_name = 'products/create.html'
     # call out form in Product Create View
-    fields = ['title', 'description', 'price', 'published', ]
+    fields = ['title', 'description', 'price', 'published', 'image']
     # Redirect when it new product created in view
     success_url = reverse_lazy('products:list')
 

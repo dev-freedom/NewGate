@@ -8,7 +8,8 @@ class Product(models.Model):
     title = models.CharField(max_length=20)
     description = models.TextField(max_length=200)
     price = models.DecimalField(max_digits=1000, decimal_places=2)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='media', default='')
+    # find the locate to upload images
     # published = models.DateTimeField(timezone.now())
 
     def __str__(self):
