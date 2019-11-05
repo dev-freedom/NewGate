@@ -182,45 +182,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<li><a href="{% url 'index' %}" class="act">Home</a></li>
 						<!-- Mega Menu -->
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
-							<ul class="dropdown-menu multi-column columns-3">
-								<div class="row">
-									<div class="col-sm-3">
-										<ul class="multi-column-dropdown">
-											<h6>Mobiles</h6>
-											<li><a href="{% url 'products:product' %}">Mobile Phones</a></li>
-											<li><a href="{% url 'products:product' %}">Mp3 Players <span>New</span></a></li>
-											<li><a href="{% url 'products:product' %}">Popular Models</a></li>
-											<li><a href="{% url 'products:product' %}">All Tablets<span>New</span></a></li>
-										</ul>
-									</div>
-									<div class="col-sm-3">
-										<ul class="multi-column-dropdown">
-											<h6>Accessories</h6>
-											<li><a href="{% url 'products:product' %}">Laptop</a></li>
-											<li><a href="{% url 'products:product' %}">Desktop</a></li>
-											<li><a href="{% url 'products:product' %}">Wearables <span>New</span></a></li>
-											<li><a href="{% url 'products:product' %}"><i>Summer Store</i></a></li>
-										</ul>
-									</div>
-									<div class="col-sm-2">
-										<ul class="multi-column-dropdown">
-											<h6>Home</h6>
-											<li><a href="{% url 'products:product' %}">Tv</a></li>
-											<li><a href="{% url 'products:product' %}">Camera</a></li>
-											<li><a href="{% url 'products:product' %}">AC</a></li>
-											<li><a href="{% url 'products:product' %}">Grinders</a></li>
-										</ul>
-									</div>
-									<div class="col-sm-4">
-										<div class="w3ls_products_pos">
-											<h4>30%<i>Off/-</i></h4>
-											<img src="{% static 'media/1.jpg' %}" alt=" " class="img-responsive" />
-										</div>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</ul>
+							<a href="{% url 'products:list' %}">Product</a>
 						</li>
 						<li><a href="{% url 'about' %}">About Us</a></li>
 						<li><a href="#">Mail Us</a></li>
@@ -233,7 +195,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         {% endblock %}
         <!-- //Navbar -->
     {% block content %}
-
+        {#   Content     #}
     {% endblock %}
         <!-- top-brands -->
 	<div class="top-brands">
@@ -325,24 +287,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<ul class="info">
 						<li><a href="{% url 'about' %}">About Us</a></li>
 						<li><a href="#">Contact Us</a></li>
-						<li><a href="{% url 'products:product' %}">Special Products</a></li>
+						<li><a href="#">Special Products</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Category</h3>
 					<ul class="info">
-						<li><a href="{% url 'products:product' %}">Mobiles</a></li>
-						<li><a href="{% url 'products:product' %}">Laptops</a></li>
-						<li><a href="{% url 'products:product' %}">Purifiers</a></li>
-						<li><a href="{% url 'products:product' %}">Wearables</a></li>
-						<li><a href="{% url 'products:product' %}">Kitchen</a></li>
+						<li><a href="#">Mobiles</a></li>
+						<li><a href="#">Laptops</a></li>
+						<li><a href="#">Purifiers</a></li>
+						<li><a href="#">Wearables</a></li>
+						<li><a href="#">Kitchen</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 w3_footer_grid">
 					<h3>Profile</h3>
 					<ul class="info">
 						<li><a href="{% url 'index' %}">Home</a></li>
-						<li><a href="{% url 'products:product' %}">Today's Deals</a></li>
+						<li><a href="#">Today's Deals</a></li>
 					</ul>
 					<h4>Follow Us</h4>
 					<div class="agileits_social_button">

@@ -4,11 +4,24 @@ from django.utils import timezone
 
 
 # Create your models here.
+class Category(models.Model):
+    name = models.CharField(max_length=20)
+    slug = models.SlugField(max_length=60, default=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('products:category', kwargs={'slug': self.slug, 'pk': self.pk})
+
+
 class Product(models.Model):
     title = models.CharField(max_length=20)
     description = models.TextField(max_length=200)
+    quality = models.IntegerField()
     price = models.DecimalField(max_digits=1000, decimal_places=2)
     image = models.ImageField(upload_to='media', default='')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     # find the locate to upload images
     # published = models.DateTimeField(timezone.now())
 
@@ -21,12 +34,8 @@ class Product(models.Model):
     # def was_published_recently(self):
     #     now = timezone.now()
     #     return now
-#
-# class Category(models.Model):
-#     topic = models.CharField(max_length=20)
-#
-#     def __str__(self):
-#         return self.topic
-#
+
+
+
 
 
