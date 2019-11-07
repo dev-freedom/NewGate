@@ -132,16 +132,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+# LOCAL_STORE = os.path.join(os.path.join(BASE_DIR, ))
+
+# static url using for in html call out the url of objects model
 STATIC_URL = '/static/'
+# Call if to rejoin the link i think so
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# Still not understand staticfiles dirs
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, 'staticfiles'),
 ]
 
 # Media files
 MEDIA_URL = '/media/'
-MEDIA_DIRS = [
-    os.path.join(BASE_DIR, "static/media"),
-]
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Fonts files
 FONT_URL = '/font/'

@@ -28,22 +28,32 @@ class ProductCreate(CreateView):
     model = Product
     template_name = 'products/create.html'
     # call out form in Product Create View
-    fields = ['title', 'description', 'price', 'published', 'image']
+    fields = ['title', 'description', 'price', 'quality', 'image', 'category']
     # Redirect when it new product created in view
     success_url = reverse_lazy('products:list')
-
+    #
+    # def form_valid(self, form):
+    #     product = form.save(commit=False)
+    #     product.save()
+    #     return self.success_url
+    # def post(self, request):
+    #     form = self.get_form()
+    #     if form.is_valid():
+    #         return self.form_valid(form)
+    #     else:
+    #         return self.form_invalid(form)
 
 class ProductUpdate(UpdateView):
     model = Product
     template_name = 'products/update.html'
-    fields = ['title', 'description', 'price', 'published']
+    fields = ['title', 'description', 'price', 'quality', 'image', 'category']
     success_url = reverse_lazy('products:list')
 
 
 class ProductDelete(DeleteView):
     model = Product
     template_name = 'products/delete.html'
-    fields = ['title', 'description', 'price', 'published']
+    # fields = ['title', 'description', 'price', 'quality', 'image', 'category']
     success_url = reverse_lazy('products:list')
 
 
@@ -57,8 +67,4 @@ class CategoriesView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['cate'] = Product.objects.all()[:5]
         return context
-    #
-    # def image(self):
-    #     file = self.get_context_data().get(o)
-
 

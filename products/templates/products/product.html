@@ -10,6 +10,7 @@
                 <li class="list-group-item">
                     {{ product.title }}
                     <div class="float-right">
+                        <img src="{{ product.image.url }}">
                         <button type="button" class="btn btn-outline-dark"><a href="{{ product.id }}">Show</a> </button>
                         <button type="button" class="btn btn-outline-dark"><a href="{% url 'products:product-update' product.id %}">Update</a> </button>
                         <button type="button" class="btn btn-outline-dark"><a href="{% url 'products:product-delete' product.id %}">Delete</a> </button>
@@ -19,13 +20,6 @@
             </ul>
         <!-- url to create product -->
         <button type="button" class="btn btn-outline-dark"><a href="{% url 'products:product-create' %}">Create</a> </button>
-        </div>
-    </div>
-    <div class="container">
-        <div>
-            {% for product in cate %}
-                {{ product.image }}
-            {% endfor %}
         </div>
     </div>
 {% endblock %}

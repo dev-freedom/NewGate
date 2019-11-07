@@ -4,8 +4,9 @@
         <div class="jumbotron">
             <h1>Product</h1>
             <form method="post">
-            {% csrf_token %}{{ form.as_p }}
-            <input class="btn btn-primary" type="submit" value="Create">
+            {% csrf_token %}
+                {{ form.as_p }}
+            <input class="btn btn-primary" type="submit" value="Save">
         </form>
         </div>
     </div>

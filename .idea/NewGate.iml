@@ -26,6 +26,7 @@
         <option value="$MODULE_DIR$/templates" />
         <option value="$MODULE_DIR$/static" />
         <option value="$MODULE_DIR$/products/templates" />
+        <option value="$MODULE_DIR$/media" />
       </list>
     </option>
   </component>

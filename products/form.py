@@ -7,5 +7,9 @@ class ProductForms(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = ['title', 'description', 'price']
+        fields = '__all__'
 
+    # def save(self, commit=True):
+    #     product = super(ProductForms, self).save(commit)
+    #     product.save()
+    #     return product
