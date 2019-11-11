@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # owns
     'products',
-    # 'customers'
+    'customer'
 ]
 
 MIDDLEWARE = [
@@ -137,10 +137,10 @@ USE_TZ = True
 # static url using for in html call out the url of objects model
 STATIC_URL = '/static/'
 # Call if to rejoin the link i think so
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Still not understand staticfiles dirs
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfiles'),
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 # Media files

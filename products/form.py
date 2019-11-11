@@ -3,11 +3,11 @@ from .models import Product
 # Product Form
 
 
-class ProductForms(forms.ModelForm):
+class ProductCreateForms(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = '__all__'
+        fields = ['title', 'description', 'quality', 'price', 'image', 'category']
 
     # def save(self, commit=True):
     #     product = super(ProductForms, self).save(commit)

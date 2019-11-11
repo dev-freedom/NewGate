@@ -23,11 +23,11 @@ urlpatterns = [
     # path of application
     path('admin/', admin.site.urls),
     path('products/', include('products.urls')),
-    # path('customers/', include('customers.urls')),
-    # class basic generic
+    path('customer/', include('customer.urls')),
     path('', views.IndexView.as_view(), name='index'),
     path('about/', views.ProductAbout.as_view(), name='about'),
     path('contact/', views.ProductContact.as_view(), name='contact'),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
