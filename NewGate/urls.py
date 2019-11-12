@@ -19,11 +19,13 @@ from NewGate import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+admin.autodiscover()
 urlpatterns = [
     # path of application
     path('admin/', admin.site.urls),
     path('products/', include('products.urls')),
     path('customer/', include('customer.urls')),
+    path('path/', include('orders.urls')),
     path('', views.IndexView.as_view(), name='index'),
     path('about/', views.ProductAbout.as_view(), name='about'),
     path('contact/', views.ProductContact.as_view(), name='contact'),

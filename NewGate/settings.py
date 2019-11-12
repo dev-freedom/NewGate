@@ -24,6 +24,7 @@ SECRET_KEY = 'cbg8m=c^$6apz8h8=p%=$t7z3gntzz750jjdr1oy6xsu9$e74j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+USE_DJANGO_JQUERY = True
 
 ALLOWED_HOSTS = []
 
@@ -39,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # owns
     'products',
-    'customer'
+    'customer',
+    'orders',
 ]
 
 MIDDLEWARE = [

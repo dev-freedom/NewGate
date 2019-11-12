@@ -10,8 +10,10 @@
     <div class="container border-bottom">
         {% for product in products %}
             <h1>{{ product.title }}</h1>
+            <img src="{{ product.image.url }}">
             <p>{{ product.price }}</p>
             <p>{{ product.created}}</p>
+            <p>{{ product.updated }}</p>
         {% endfor %}
     </div>
     <!-- show brand of product -->
