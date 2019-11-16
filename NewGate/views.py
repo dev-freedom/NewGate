@@ -1,19 +1,29 @@
-from django.views import generic
+from django.shortcuts import render
+from django.views.generic import View
 from products.models import Product
 
-# View for Home page
-class IndexView(generic.TemplateView):
-    template_name = 'index.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['products'] = Product.objects.all()
-        return context
+class Index(View):
+    def get(self, request):
+        queryset = Product.objects.all().filter()[:5]
+        context = {
+            'queryset': queryset,
+        }
+        return render(request, 'index.html', context)
+
+class About(View):
+    def get(self, request):
+        queryset = Product.objects.all().filter()[:5]
+        context = {
+            'queryset': queryset,
+        }
+        return render(request, 'about.html', context)
 
 
-class ProductAbout(generic.TemplateView):
-    template_name = 'about.html'
-
-
-class ProductContact(generic.TemplateView):
-    template_name = 'contact.html'
+class Contact(View):
+    def get(self, request):
+        queryset = Product.objects.all().filter()[:5]
+        context = {
+            'queryset': queryset,
+        }
+        return render(request, 'contact.html', context)

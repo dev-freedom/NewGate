@@ -23,7 +23,7 @@ class Category(models.Model):
 
 class ProductManager(models.Manager):
     def get_queryset(self):
-        return super(ProductManager, self).get_queryset()
+        return super(ProductManager, self).get_queryset().filter()
 
 
 class Product(models.Model):
@@ -42,7 +42,10 @@ class Product(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    objects = ProductManager()
+    # objects = ProductManager()
+
+    class Meta:
+        ordering = []
 
     def __str__(self):
         return self.title

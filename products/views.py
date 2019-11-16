@@ -10,13 +10,13 @@ from .form import ProductCreateForms
 class ProductIndex(ListView):
     model = Product
     template_name = 'products/list.html'
+    context_object_name = 'queryset'
 
-    def get_context_data(self, *, object_list=None, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['list'] = Product.objects.all()
+        context['items'] = Product.objects.all()
+        context['catalogs'] = Category.objects.all()
         return context
-
-
 
 class ProductDetail(DetailView):
     template_name = 'products/detail.html'
@@ -44,5 +44,4 @@ class ProductDelete(DeleteView):
     model = Product
     template_name = 'products/delete.html'
     success_url = reverse_lazy('products:list')
-
 

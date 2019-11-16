@@ -18,6 +18,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="popper" level="application" />
+    <orderEntry type="library" name="jquery-3.3.1.slim" level="application" />
+    <orderEntry type="library" name="1ffca70c1b" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
@@ -27,6 +31,7 @@
         <option value="$MODULE_DIR$/static" />
         <option value="$MODULE_DIR$/products/templates" />
         <option value="$MODULE_DIR$/media" />
+        <option value="$MODULE_DIR$/orders/templates" />
       </list>
     </option>
   </component>

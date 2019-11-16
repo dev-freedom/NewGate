@@ -1,23 +1,80 @@
 {% extends "layout/base_view.html" %}
+{% load static %}
 {% block content %}
-    <div class="container">
-        <h1>List</h1>
-        <div class="coll container">
-            <ul class="list-group">
-            {% for product in cate %}
-                <li class="list-group-item">
-                    {{ product.title }}
-                    <div class="float-right">
-                        <img src="{{ product.image.url }}">
-                        <button type="button" class="btn btn-outline-dark"><a href="{{ product.id }}">Show</a> </button>
-                        <button type="button" class="btn btn-outline-dark"><a href="{% url 'products:product-update' product.id %}">Update</a> </button>
-                        <button type="button" class="btn btn-outline-dark"><a href="{% url 'products:product-delete' product.id %}">Delete</a> </button>
+    <!-- Page Add Section Begin -->
+    <section class="page-add">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="page-breadcrumb">
+                        <h2>Dresses<span>.</span></h2>
+                        <a href="#">Home</a>
+                        <a href="#">Dresses</a>
+                        <a class="active" href="#">Night Dresses</a>
                     </div>
-                </li>
-            {% endfor %}
-            </ul>
-        <!-- url to create product -->
-        <button type="button" class="btn btn-outline-dark"><a href="{% url 'products:product-create' %}">Create</a> </button>
+                </div>
+                <div class="col-lg-8">
+                    <img src="{% static 'media/add.jpg' %}" alt="">
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+    <!-- Page Add Section End -->
+
+    <!-- Categories Page Section Begin -->
+    <section class="categories-page spad">
+        <div class="container">
+            <div class="categories-controls">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="categories-filter product-filter">
+                            <div class="cf-left">
+                                <div class="section-title">
+                            <p>Category</p>
+                                </div>
+                            <ul class="product-controls">
+                                <li data-filter="*">All</li>
+                                <li data-filter=".dresses">Dresses</li>
+                                <li data-filter=".bags">Bags</li>
+                                <li data-filter=".shoes">Shoes</li>
+                                <li data-filter=".accesories">Accesories</li>
+                            </ul>
+                            </div>
+                            <div class="cf-right">
+                                <form action="#">
+                                    <select class="sort">
+                                        <option value="">Sort by</option>
+                                        <option value="">Orders</option>
+                                        <option value="">Newest</option>
+                                        <option value="">Price</option>
+                                    </select>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for product in queryset %}
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-product-item">
+                        <figure>
+                            <img src="{{ product.image.url }}" alt="">
+                            <div class="p-status">new</div>
+                            <div class="hover-icon">
+                                <a href="{% url 'products:product-detail' product.id %}" class="pop-up"><img src="{% static 'media/icons/zoom-plus.png' %}"
+                                        alt=""></a>
+                            </div>
+                        </figure>
+                        <div class="product-text">
+                            <a href="{% url 'products:product-detail' product.id %}">
+                                <h6>{{ product.title }}</h6>
+                            </a>
+                            <p>{{ product.price }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+    <!-- Categories Page Section End -->
+
 {% endblock %}
