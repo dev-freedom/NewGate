@@ -31,7 +31,7 @@
         <option value="$MODULE_DIR$/static" />
         <option value="$MODULE_DIR$/products/templates" />
         <option value="$MODULE_DIR$/media" />
-        <option value="$MODULE_DIR$/orders/templates" />
+        <option value="$MODULE_DIR$/accounts/templates" />
       </list>
     </option>
   </component>

@@ -66,7 +66,7 @@ class ProductDelete(DeleteView):
 
 class OrderView(View):
     def get(self, product, *args, **kwargs):
-        order = Order.objects.get(product=self.request.user, ordered=False)
+        order = OrderItem.objects.get(product=self.request)
         context = {
             'object': order
         }

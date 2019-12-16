@@ -24,7 +24,7 @@ urlpatterns = [
     # path of application
     path('admin/', admin.site.urls),
     path('products/', include('products.urls')),
-    path('customer/', include('customer.urls')),
+    path('account/', include('accounts.urls')),
     # path('orders/', include('orders.urls')),
     path('', views.Index.as_view(), name='index'),
     path('about/', views.About.as_view(), name='about'),

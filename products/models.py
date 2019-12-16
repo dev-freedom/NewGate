@@ -60,30 +60,19 @@ class OrderManager(models.Manager):
         pass
 
 
+class Order(models.Model):
+    STATUES = (('N', 'NEW'), ('P', 'PAID'), ('D', 'DONE'))
+    statues = models.CharField(max_length=1, choices=STATUES, default='N')
+    ordered = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+
 class OrderItem(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True, null=True, default=None)
     quantity = models.PositiveIntegerField(default=1)
 
     def __str__(self):
         return '{0} of {1}'.format(self.quantity, self.product.title)
-
-
-class Order(models.Model):
-    STATUES = (('N', 'NEW'), ('P', 'PAID'), ('D', 'DONE'))
-    statues = models.CharField(max_length=1, choices=STATUES, default='N')
-    # code = models.CharField(max_length=10)
-    ordered = models.BooleanField(default=False)
-    product = models.ManyToManyField(OrderItem, related_name='order_product')
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return '{}'.format(self.product.all())
-
-    # def code_limited(self):
-    #     if self.code == 'CX':
-    #         if len(self.code) == 10:
-    #             return self.code
-    #         elif len(self.code) < 10 or len(self.code) > 10:
-    #             return 'the code can not be less or higher 10 integer'
 
