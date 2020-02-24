@@ -21,10 +21,12 @@ class ProductManager(models.Manager):
     def get_queryset(self):
         return super(ProductManager, self).get_queryset().filter()
 
+    def rating_product(self):
+        pass
+
 
 class Product(models.Model):
     title = models.CharField(max_length=140)
-    slug = models.SlugField(max_length=140, unique=True)
     brand = models.CharField(max_length=1400)
     description = models.TextField(max_length=500)
     quality = models.IntegerField()
@@ -49,14 +51,11 @@ class Product(models.Model):
         return reverse('products:product-detail', kwargs={'pk': self.pk, 'slug': self.slug})
 
     def add_order_url(self, **kwargs):
-        return reverse('products:add-cart', kwargs={'slug': self.slug})
+        return reverse('products:add-cart', kwargs={'pk': self.pk})
 
 
 class OrderManager(models.Manager):
     def queryset(self):
-        pass
-
-    def get_product(self):
         pass
 
 

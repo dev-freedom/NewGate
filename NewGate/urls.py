@@ -27,6 +27,7 @@ urlpatterns = [
     path('account/', include('accounts.urls')),
     # path('orders/', include('orders.urls')),
     path('', views.Index.as_view(), name='index'),
+    path('blog/', views.Blog.as_view(), name='blog'),
     path('about/', views.About.as_view(), name='about'),
     path('contact/', views.Contact.as_view(), name='contact'),
 

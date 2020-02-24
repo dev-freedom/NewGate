@@ -18,6 +18,7 @@ class ProductIndex(ListView):
         context['catalogs'] = Category.objects.all()
         return context
 
+
 class ProductDetail(DetailView):
     model = Product
     template_name = 'products/detail.html'
@@ -29,17 +30,17 @@ class ProductDetail(DetailView):
     #     return context
 
     def add_to_cart(self):
-        queryset = Product.objects.get(slug=self.slug_url_kwarg)
+        queryset = Product.objects.get(pk=self.pk_url_kwarg)
 
 
-def add_order(request, slug):
-    product = get_object_or_404(Product, slug=slug)
+def add_order(request, pk):
+    product = get_object_or_404(Product, pk=pk)
     order_item, created = OrderItem.objects.get_or_create(
         product=product,
         )
     order = Order.objects.create()
     order.product.add(order_item)
-    return redirect('products:product-detail', slug=slug)
+    return redirect('products:product-detail', pk=pk)
 
 
 class ProductCreate(CreateView):

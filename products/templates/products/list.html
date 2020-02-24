@@ -62,12 +62,12 @@
                             <img src="{{ product.image.url }}" alt="">
                             <div class="p-status">new</div>
                             <div class="hover-icon">
-                                <a href="{% url 'products:product-detail' product.slug %}" class="pop-up"><img src="{% static 'media/icons/zoom-plus.png' %}"
+                                <a href="{% url 'products:product-detail' product.pk %}" class="pop-up"><img src="{% static 'media/icons/zoom-plus.png' %}"
                                         alt=""></a>
                             </div>
                         </figure>
                         <div class="product-text">
-                            <a href="{% url 'products:product-detail' product.slug %}">
+                            <a href="{% url 'products:product-detail' product.pk %}">
                                 <h6>{{ product.title }}</h6>
                             </a>
                             <p>{{ product.price }}</p>
