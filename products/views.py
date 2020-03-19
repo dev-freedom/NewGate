@@ -52,6 +52,7 @@ class ProductCreate(CreateView):
     # Redirect when it new product created in view
     success_url = reverse_lazy('products:list')
 
+
 class ProductUpdate(UpdateView):
     model = Product
     template_name = 'products/update.html'
@@ -67,7 +68,7 @@ class ProductDelete(DeleteView):
 
 class OrderView(View):
     def get(self, product, *args, **kwargs):
-        order = OrderItem.objects.get(product=self.request)
+        order = OrderItem.objects.get(product=self.request.user)
         context = {
             'object': order
         }

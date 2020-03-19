@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 admin.autodiscover()
 urlpatterns = [
     # path of application
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('products/', include('products.urls')),
     path('account/', include('accounts.urls')),
     # path('orders/', include('orders.urls')),

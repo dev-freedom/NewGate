@@ -48,7 +48,7 @@ class Product(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('products:product-detail', kwargs={'pk': self.pk, 'slug': self.slug})
+        return reverse('products:product-detail', kwargs={'pk': self.pk})
 
     def add_order_url(self, **kwargs):
         return reverse('products:add-cart', kwargs={'pk': self.pk})
